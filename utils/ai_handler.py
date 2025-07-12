@@ -15,7 +15,16 @@ class AIHandler:
         self.base_url = "https://api.groq.com/openai/v1/chat/completions"
         self.model = "llama-3.1-8b-instant"
         
-        # Enhanced context with DAO information
+        # Prepare newlines for join expressions to avoid f-string backslash errors
+        features = "\n".join([f"- {feature}" for feature in PROJECT_INFO.get('features', [])])
+        tech_specs = "\n".join([f"- {key}: {value}" for key, value in PROJECT_INFO.get('technical_specs', {}).items()])
+        token_uses = "\n".join([f"- {use_case}" for use_case in PROJECT_INFO.get('token', {}).get('use_cases', [])])
+        network_info = "\n".join([f"- {network}: {status}" for network, status in PROJECT_INFO.get('network', {}).items()])
+        dao_proposals = "\n".join([f"- {proposal_type}" for proposal_type in PROJECT_INFO.get('dao_specs', {}).get('proposal_types', [])])
+        dao_features = "\n".join([f"- {feature}" for feature in PROJECT_INFO.get('dao_specs', {}).get('features', [])])
+        innovation_eras = "\n".join([f"- {era}: {description}" for era, description in PROJECT_INFO.get('innovation_eras', {}).items()])
+        faq = "\n".join([f"Q: {question}\nA: {answer}\n" for question, answer in PROJECT_INFO.get('faq', {}).items()])
+        
         self.context = f"""
 You are an AI assistant for the Xandeum blockchain project. You have access to comprehensive information about:
 
@@ -26,16 +35,21 @@ You are an AI assistant for the Xandeum blockchain project. You have access to c
 - Greenpaper: {PROJECT_INFO.get('greenpaper', 'N/A')}
 
 **Key Features:**
-{chr(10).join([f"- {feature}" for feature in PROJECT_INFO.get('features', [])])}
+{features}
 
 **Technical Specifications:**
-{chr(10).join([f"- {key}: {value}" for key, value in PROJECT_INFO.get('technical_specs', {}).items()])}
+{tech_specs}
 
-**Token Information (XAN):**
-{chr(10).join([f"- {use_case}" for use_case in PROJECT_INFO.get('token', {}).get('use_cases', [])])}
+**Token Information (XAND on Solana):**
+- Name: XAND
+- Symbol: XAND
+- Chain: Solana
+- Mint Address: XANDuUoVoUqniKkpcKhrxmvYJybpJvUxJLr21Gaj3Hx
+- Solscan: https://solscan.io/token/XANDuUoVoUqniKkpcKhrxmvYJybpJvUxJLr21Gaj3Hx
+{token_uses}
 
 **Network Information:**
-{chr(10).join([f"- {network}: {status}" for network, status in PROJECT_INFO.get('network', {}).items()])}
+{network_info}
 
 **pNode Network:**
 - pNodes are storage provider nodes that store encrypted data
@@ -54,14 +68,16 @@ You are an AI assistant for the Xandeum blockchain project. You have access to c
 - Governance type: {PROJECT_INFO.get('dao_specs', {}).get('governance_type', 'N/A')}
 - Voting power: {PROJECT_INFO.get('dao_specs', {}).get('voting_power', 'N/A')}
 - Platform: {PROJECT_INFO.get('dao_specs', {}).get('platform', 'N/A')}
-- Proposal types: {chr(10).join([f"- {proposal_type}" for proposal_type in PROJECT_INFO.get('dao_specs', {}).get('proposal_types', [])])}
-- Features: {chr(10).join([f"- {feature}" for feature in PROJECT_INFO.get('dao_specs', {}).get('features', [])])}
+- Proposal types:
+{dao_proposals}
+- Features:
+{dao_features}
 
 **Innovation Eras:**
-{chr(10).join([f"- {era}: {description}" for era, description in PROJECT_INFO.get('innovation_eras', {}).items()])}
+{innovation_eras}
 
 **Common Questions and Answers:**
-{chr(10).join([f"Q: {question}\nA: {answer}\n" for question, answer in PROJECT_INFO.get('faq', {}).items()])}
+{faq}
 
 **Important Guidelines:**
 1. Always provide accurate, up-to-date information about Xandeum
@@ -120,6 +136,7 @@ You are an AI assistant for the Xandeum blockchain project. You have access to c
     def format_project_info(self, info_type: str) -> str:
         """Format project information for specific types"""
         if info_type == "overview":
+            features = "\n".join([f"• {feature}" for feature in PROJECT_INFO.get('features', [])])
             return f"""
 **Xandeum Project Overview**
 
@@ -133,7 +150,7 @@ Xandeum is a decentralized blockchain platform that focuses on innovation, cross
 • Innovation Eras: {PROJECT_INFO.get('innovation_eras', 'N/A')}
 
 🌟 **Key Features:**
-{chr(10).join([f"• {feature}" for feature in PROJECT_INFO.get('features', [])])}
+{features}
 
 💎 **Native Token: XAN**
 • Used for governance, staking, and network operations
@@ -169,26 +186,31 @@ Xandeum is a decentralized blockchain platform that focuses on innovation, cross
         
         elif info_type == "token":
             token_info = PROJECT_INFO.get('token', {})
+            uses = "\n".join([f"• {use_case}" for use_case in token_info.get('use_cases', [])])
             return f"""
-**XAN Token Information**
+**XAND Token Information (Solana)**
 
 💎 **Token Details:**
 • Name: {token_info.get('name', 'N/A')}
 • Symbol: {token_info.get('symbol', 'N/A')}
+• Chain: {token_info.get('chain', 'Solana')}
+• Mint Address: {token_info.get('mint_address', 'N/A')}
+• [View on Solscan]({token_info.get('solscan', 'N/A')})
 • Total Supply: {token_info.get('total_supply', 'N/A')}
 • Decimals: {token_info.get('decimals', 'N/A')}
 
 🎯 **Use Cases:**
-{chr(10).join([f"• {use_case}" for use_case in token_info.get('use_cases', [])])}
+{uses}
             """.strip()
         
         elif info_type == "eras":
             eras = PROJECT_INFO.get('innovation_eras', {})
+            era_lines = "\n".join([f"• **{era.replace('_', ' ').title()}:** {description}" for era, description in eras.items()])
             return f"""
 **Innovation Eras Roadmap**
 
 📅 **Development Phases:**
-{chr(10).join([f"• **{era.replace('_', ' ').title()}:** {description}" for era, description in eras.items()])}
+{era_lines}
 
 🔗 **Learn More:** {PROJECT_INFO.get('innovation_eras', 'N/A')}
             """.strip()

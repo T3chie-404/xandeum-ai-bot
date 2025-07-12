@@ -7,7 +7,7 @@ A comprehensive Discord AI bot for the Xandeum blockchain project, providing rea
 ### **Project Information**
 - Real-time project data and statistics
 - Technical specifications and documentation links
-- Token information and use cases
+- Token information and use cases (XAND on Solana)
 - Innovation eras roadmap
 
 ### **Node Support**
@@ -61,12 +61,12 @@ python bot.py
 ### **Information Commands**
 - `!overview` - Project overview
 - `!technical` - Technical specifications
-- `!token` - Token information
+- `!token` - Token information (XAND, Solana)
 - `!eras` - Innovation eras roadmap
 - `!docs` - Documentation links
 
 ### **Real-time Data**
-- `!price` - Current XAN price
+- `!price` - Current XAND price
 - `!stake` - Staking information
 - `!validators` - Active validators
 - `!governance` - Governance proposals
@@ -162,6 +162,7 @@ The bot includes a port checker utility for testing node connectivity:
 - **Documentation**: https://docs.xandeum.network
 - **Greenpaper**: https://greenpaper.xandeum.network
 - **Innovation Eras**: https://www.xandeum.network/innovation-eras
+- **LinkTree**: https://linktr.ee/xandeum
 
 ### Node Resources
 - **pNode Setup**: https://pnodes.xandeum.network/
@@ -172,6 +173,9 @@ The bot includes a port checker utility for testing node connectivity:
 - **Discord**: https://discord.gg/xandeum
 - **Twitter**: https://twitter.com/xandeum
 - **GitHub**: https://github.com/xandeum
+
+### Token Resources
+- **Solscan (XAND)**: https://solscan.io/token/XANDuUoVoUqniKkpcKhrxmvYJybpJvUxJLr21Gaj3Hx
 
 ## 🤝 Contributing
 

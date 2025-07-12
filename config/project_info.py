@@ -13,6 +13,7 @@ PROJECT_INFO = {
     "github": "https://github.com/xandeum",
     "discord": "https://discord.gg/xandeum",
     "twitter": "https://twitter.com/xandeum",
+    "linktree": "https://linktr.ee/xandeum",
     
     # pNode Resources
     "pnodes": {
@@ -66,8 +67,11 @@ PROJECT_INFO = {
     
     # Token Information
     "token": {
-        "name": "XAN",
-        "symbol": "XAN",
+        "name": "XAND",
+        "symbol": "XAND",
+        "chain": "Solana",
+        "mint_address": "XANDuUoVoUqniKkpcKhrxmvYJybpJvUxJLr21Gaj3Hx",
+        "solscan": "https://solscan.io/token/XANDuUoVoUqniKkpcKhrxmvYJybpJvUxJLr21Gaj3Hx",
         "total_supply": "To be announced",
         "decimals": "To be determined",
         "use_cases": [
@@ -180,7 +184,7 @@ PROJECT_INFO = {
         "Is Xandeum environmentally friendly?": "Yes, Xandeum is designed with sustainability in mind, featuring green blockchain technology and energy-efficient consensus mechanisms.",
         "When will the mainnet launch?": "The mainnet launch timeline follows the Innovation Eras roadmap. Check the official documentation for the most current timeline.",
         "How can I get involved?": "You can get involved by joining the Discord community, following the project on social media, and staying updated through the official documentation and greenpaper.",
-        "What is the XAN token?": "XAN is the native token of the Xandeum network, used for governance, transaction fees, staking, and cross-chain operations.",
+        "What is the XAND token?": "XAND is the native token of the Xandeum network, deployed on the Solana blockchain. Mint address: XANDuUoVoUqniKkpcKhrxmvYJybpJvUxJLr21Gaj3Hx. View on Solscan: https://solscan.io/token/XANDuUoVoUqniKkpcKhrxmvYJybpJvUxJLr21Gaj3Hx",
         "Where can I learn more?": "Visit the official website at xandeum.network, read the documentation at docs.xandeum.network, and check out the greenpaper for technical details.",
         "What is a pNode?": "pNodes are storage provider nodes in the Xandeum network that store encrypted data and participate in the network's consensus mechanism. They earn rewards for providing storage and maintaining network integrity.",
         "How do I set up a pNode?": "To set up a pNode, you need a VPS with at least 4 CPU cores, 4GB RAM, and 80GB SSD storage. Follow the setup guide at pnodes.xandeum.network for detailed instructions.",

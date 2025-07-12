@@ -1,0 +1,10 @@
+# Discord Bot Dependencies
+discord.py>=2.3.0
+python-dotenv>=1.0.0
+
+# AI and HTTP Dependencies
+aiohttp>=3.8.0
+asyncio
+
+# Utility Dependencies
+typing-extensions>=4.0.0 

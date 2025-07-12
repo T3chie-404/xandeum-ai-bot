@@ -29,7 +29,7 @@ class BotCommands:
                 price_data = await get_mock_data("price_data")
             
             return f"""
-**XAN Price Information**
+**XAND Price Information**
 💰 Price: ${price_data.get('price_usd', 'N/A')}
 📊 24h Change: {price_data.get('change_24h', 'N/A')}%
 💎 Market Cap: ${price_data.get('market_cap', 'N/A'):,}
@@ -51,9 +51,9 @@ class BotCommands:
             
             return f"""
 **Staking Information**
-🎯 Total Staked: {staking_data.get('total_staked', 'N/A')} XAN
+🎯 Total Staked: {staking_data.get('total_staked', 'N/A')} XAND
 📈 APY: {staking_data.get('staking_apy', 'N/A')}
-⚡ Min Stake: {staking_data.get('min_stake', 'N/A')} XAN
+⚡ Min Stake: {staking_data.get('min_stake', 'N/A')} XAND
 🔧 Active Validators: {staking_data.get('active_validators', 'N/A')}
 📊 Total Validators: {staking_data.get('total_validators', 'N/A')}
             """.strip()
@@ -82,7 +82,7 @@ class BotCommands:
             for i, validator in enumerate(validators_data.get('top_validators', [])[:5], 1):
                 response += f"""
 {i}. **{validator.get('name', 'Unknown')}**
-   Stake: {validator.get('stake', 'N/A')} XAN
+   Stake: {validator.get('stake', 'N/A')} XAND
    Commission: {validator.get('commission', 'N/A')}
                 """
             
@@ -135,7 +135,7 @@ class BotCommands:
 🟢 Status: {network_data.get('status', 'N/A')}
 📦 Block Height: {network_data.get('block_height', 'N/A'):,}
 🔧 Validators: {network_data.get('validators', 'N/A')}
-💰 Total Staked: {network_data.get('total_staked', 'N/A')} XAN
+💰 Total Staked: {network_data.get('total_staked', 'N/A')} XAND
 ⏱️ Uptime: {network_data.get('network_uptime', 'N/A')}
             """.strip()
             
@@ -162,7 +162,7 @@ class BotCommands:
 **Quick Info:**
 • `!overview` - Project overview
 • `!technical` - Technical specifications  
-• `!token` - Token information
+• `!token` - Token information (XAND, Solana)
 • `!eras` - Innovation eras roadmap
 • `!docs` - Documentation links
 • `!pnode` - pNode information and guides
@@ -366,7 +366,7 @@ class BotCommands:
 {chr(10).join([f"• {feature}" for feature in dao_specs.get('features', [])])}
 
 💡 **How to Participate:**
-• Hold XAN tokens to get voting power
+• Hold XAND tokens to get voting power
 • Visit the DAO platform to view proposals
 • Vote on proposals that interest you
 • Participate in community discussions
@@ -383,7 +383,7 @@ class BotCommands:
 
 🔍 **To view current proposals:**
 1. Visit the DAO platform
-2. Connect your wallet with XAN tokens
+2. Connect your wallet with XAND tokens
 3. Browse active proposals
 4. Read proposal details and discussions
 5. Cast your vote
@@ -395,7 +395,7 @@ class BotCommands:
 • Governance structure changes
 
 🗳️ **Voting:**
-• Voting power based on XAN token holdings
+• Voting power based on XAND token holdings
 • You can vote Yes, No, or abstain
 • Results are executed automatically if passed
         """.strip()
@@ -408,13 +408,13 @@ class BotCommands:
 **DAO Voting Information**
 
 🗳️ **How Voting Works:**
-• Voting power is based on your XAN token holdings
+• Voting power is based on your XAND token holdings
 • More tokens = more voting power
 • You can vote Yes, No, or abstain on proposals
 
 📋 **Voting Process:**
 1. Visit: {dao_info.get('dao_platform', 'N/A')}
-2. Connect your wallet containing XAN tokens
+2. Connect your wallet containing XAND tokens
 3. Browse active proposals
 4. Read proposal details and community discussion
 5. Cast your vote before the deadline
